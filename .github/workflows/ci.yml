@@ -26,9 +26,15 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            ~/.cargo/bin
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo binaries
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin
+          key: ${{ runner.os }}-cargo-binaries
 
       - name: Cache node_modules
         uses: actions/cache@v2
