@@ -1,12 +1,9 @@
-import * as wasm from 'crank';
+import App from './lib/App.svelte';
 
-// wasm.greet('visitor');
-
-document.getElementById('text').addEventListener('input', function (event) {
-  var result = wasm.parse_formula(event.target.value);
-  if (result) {
-    document.getElementById('result').innerHTML = 'VALID';
-  } else {
-    document.getElementById('result').innerHTML = 'INVALID';
-  }
-})
+const app = new App({
+	target: document.body,
+	props: {
+		// we'll learn about props later
+		answer: 42
+	}
+});
